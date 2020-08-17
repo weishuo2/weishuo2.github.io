@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CPU,虚拟化," />
 
 
 
@@ -86,13 +86,17 @@
 
 
 
-<meta name="description" content="Not the best,just be better">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Wei Shuo&#39;s blog">
-<meta property="og:url" content="http://www.betterwei.cn/archives/index.html">
+<meta name="description" content="主要内容在一台普通的电脑中运行一个操作系统和其他软件，主要需要以下硬件来支撑，即：CPU，内存，外存。其中基本的单核CPU同一时间只能运行一个进程,内存用于暂时存放进程所需要的数据，而外存存放能够长期保存的数据。举个很简单的例子，在你下载了一个软件以后，还没打开时，这个软件的所有信息都应该存放在外存上，这样确保了你以后的使用，都不需要再次下载。而当你点开这个软件后，该软件运行所需要的部分信息就会从">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统之虚拟化（一）">
+<meta property="og:url" content="http://www.betterwei.cn/2020/08/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E8%99%9A%E6%8B%9F%E5%8C%96(%E4%B8%80)/index.html">
 <meta property="og:site_name" content="Wei Shuo&#39;s blog">
-<meta property="og:description" content="Not the best,just be better">
+<meta property="og:description" content="主要内容在一台普通的电脑中运行一个操作系统和其他软件，主要需要以下硬件来支撑，即：CPU，内存，外存。其中基本的单核CPU同一时间只能运行一个进程,内存用于暂时存放进程所需要的数据，而外存存放能够长期保存的数据。举个很简单的例子，在你下载了一个软件以后，还没打开时，这个软件的所有信息都应该存放在外存上，这样确保了你以后的使用，都不需要再次下载。而当你点开这个软件后，该软件运行所需要的部分信息就会从">
+<meta property="article:published_time" content="2020-08-17T07:50:17.000Z">
+<meta property="article:modified_time" content="2020-08-17T10:34:39.576Z">
 <meta property="article:author" content="Wei Shuo">
+<meta property="article:tag" content="CPU">
+<meta property="article:tag" content="虚拟化">
 <meta name="twitter:card" content="summary">
 
 
@@ -123,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="http://www.betterwei.cn/archives/"/>
+  <link rel="canonical" href="http://www.betterwei.cn/2020/08/17/操作系统之虚拟化(一)/"/>
 
 
 
@@ -137,7 +141,7 @@
   </script>
 
 
-  <title>归档 | Wei Shuo's blog</title>
+  <title>操作系统之虚拟化（一） | Wei Shuo's blog</title>
   
 
 
@@ -156,7 +160,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/weishuo2" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -275,111 +279,313 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.betterwei.cn/2020/08/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E8%99%9A%E6%8B%9F%E5%8C%96(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wei Shuo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/%E5%A4%8F%E6%97%A5.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wei Shuo's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">操作系统之虚拟化（一）</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-17T15:50:17+08:00">
+                2020-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 2 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/08/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E8%99%9A%E6%8B%9F%E5%8C%96(%E4%B8%80)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/08/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E8%99%9A%E6%8B%9F%E5%8C%96(%E4%B8%80)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><p>在一台普通的电脑中运行一个操作系统和其他软件，主要需要以下硬件来支撑，即：CPU，内存，外存。其中基本的单核CPU同一时间只能运行一个进程,内存用于暂时存放进程所需要的数据，而外存存放能够长期保存的数据。举个很简单的例子，在你下载了一个软件以后，还没打开时，这个软件的所有信息都应该存放在外存上，这样确保了你以后的使用，都不需要再次下载。而当你点开这个软件后，该软件运行所需要的部分信息就会从外存上被复制到内存上，然后CPU也读取对应的程序开始运行。而操作系统就是管理这些软件的运行，以及对你的鼠标键盘等外设输入做出反应的一个软件。</p>
+<p>那么问题是，一个单核CPU同一时间只能运行一个进程，平时的使用中是如何做到操作系统一直运行，还能保证条件允许的情况下，所有打开的软件都能同时正确运行的呢？所有运行的软件的运行信息都在内存中，那么如何保证恶意软件无法轻松的读取到其他软件的运行信息呢？当几个软件都想同时显示在屏幕上，或者都想使用耳机，操作系统又该如何抉择呢？软件被点开运行时，它的数据是如何从外存迁移到内存的呢？在内存不足时，怎么使用部分外存来替代内存的呢？主要涉及以下几点：</p>
+<ol>
+<li><p>虚拟化CPU：单核CPU怎么做到像有多个CPU，比如同时运行两个程序，同理，其他器件也是</p>
+</li>
+<li><p>虚拟化内存：怎么让多个程序都像有自己独特的内存，而不是共享相同的物理内存，其次考虑安全性</p>
+</li>
+<li><p>并发控制：同时运行的程序怎么处理同一个资源，程序运行顺序怎么调度</p>
+</li>
+<li><p>持久性：怎么管理外存（I/O），怎么读取怎么写入怎么持久化（文件系统） </p>
+</li>
+</ol>
+<h2 id="CPU虚拟化"><a href="#CPU虚拟化" class="headerlink" title="CPU虚拟化"></a>CPU虚拟化</h2><h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>首先明确进程在CPU上的运行是时分共享，其次需要知道用什么调度策略来确定程序的运行顺序。(如何做是机制，比如如何进行上下文切换。哪个是策略，比如运行哪个进程)时分共享即，每个进程运行一小段固定时间，然后就给别的进程运行，然后一直等待自己运行时间的到来。</p>
+<p>进程的机器状态，一部分是内存，运行的程序，读写的数据都在他的内存地址空间中。另一部分是寄存器，指令计数器和栈指针等等。</p>
+<p>而进程的主要运作状态即：创建、销毁、等待、其他控制。</p>
+<p>创建：进程代码和静态数据都在SSD（外存）上，运行前需要被加载到内存中，只加载需要的数据。还要分配运行时的栈(存放局部变量，函数参数和返回地址)。堆是显式请求（malloc）的动态分配。</p>
+<p>操作系统调度时需要存每个进程的寄存器信息，程序开始地址，程序占用大小，开启的文件地址，是否有父进程，进程状态，进程编号，进程是否被kill等等信息，以便确定阻塞的进程是否可以执行了，以及调度所有就绪的进程去CPU执行。</p>
+<h3 id="进程的受限机制"><a href="#进程的受限机制" class="headerlink" title="进程的受限机制"></a>进程的受限机制</h3><p>1.进程在限制条件下如何获得更多控制权。</p>
+<p>首先是用户模式和内核态的切换：程序执行陷阱（trap）指令，该指令跳入内核并提升特权级别到内核态，执行特权操作，完成后调用return-from-trap，返回用户程序，将特权级别降低，回到用户模式。跳转前需要将进程的程序计数器，寄存器等写到它的内核栈。那么如何陷阱指令知道运行哪部分代码呢？内核启动时设置陷阱表(特权指令)，自由配置机器硬件，告诉硬件在发生某些异常情况时需要运行哪些代码，硬件会记住这些处理程序的位置。</p>
+<p>2.进程间的切换。</p>
+<p>操作系统在进程占用CPU运行时是怎么收回控制权进行调度的呢？（恶意进程想着永远一直跑，不把控制权交给其他进程）一种是等待进程运行完以后进行yield的系统调用，交回控制权；一种是出现违规操作，返回操作系统。原来在进程不协作也不出错一直跑时，就只能重启；现在就通过时钟中断，每隔几毫秒就产生一次中断回到操作系统。回到了操作系统，就可以进行调度，是继续运行当前进程还是切换其他进程，切换的话又触发上下文切换。那么可以思考一下，中断时再中断会咋样。</p>
+<h3 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h3><p>为了判断操作系统的调度安排是否合理，首先需要定义一系列的评价指标：</p>
+<ul>
+<li>周转时间=完成时间-到达时间(因为考虑调度，所以这个值肯定大于等于实际需要运行的时间)  </li>
+</ul>
+<p>加入用户的交互，考虑第二个指标：</p>
+<ul>
+<li>响应时间 = 首次运行时间-到达时间</li>
+</ul>
+<p>常见的策略有：FIFO先到先执行、SJF选择执行时间最短的先执行，同时到达时最优、非抢占式STCF 抢占式、最短完成时间、RP轮转。</p>
+<p>分时间片也需要考虑诸多因素，太短导致上下文切换开销大；太长导致响应时间慢。还有一点就是，I/O时间一般较长，所以可以考虑优先结合I/O，I/O时切换CPU给另外进程使用。</p>
+<h3 id="多级反馈队列MLFQ"><a href="#多级反馈队列MLFQ" class="headerlink" title="多级反馈队列MLFQ"></a>多级反馈队列MLFQ</h3><p>大多数进程的运行时没有办法预知其执行时间的，那么如何在这个前提下尽可能的科学调度。</p>
+<p>首先设计多个队列，每个队列有不同的优先级，序列内部采用轮询机制。在进程运行过程中学习其行为，利用工作历史预测其优先级。工作进入系统，放在最高优先级；工作用完了时间片，就降低其优先级；如果在时间片内主动释放CPU（比如等待I/O），则优先级不变。新加入的工作总是被假设为是短工作而被提前执行。如果是真的短就没事；但是如果是假的短工作，它会运行一段时间后就被下移。有I/O的因为主动放弃了CPU，优先级不变。</p>
+<p>带来的问题在于CPU密集型的程序总会被交互型的程序（暂时放弃CPU，做了I/O就优先级不变）抢占，且可能有恶意程序。</p>
+<p>一种解决办法就是：周期性的提高当前工作集的优先级，那么周期时间的设置就是个问题。另一种解决办法是：对每个工作进行时间配额，用完了配额就下移优先级。带来的问题是多少数量的队列？时间片大小设置为多少？多久提升一次优先级？涉及调参，且每个参数对不同情况最优值又不一样，这种参数叫巫毒参数。</p>
+<h3 id="调度：比例份额"><a href="#调度：比例份额" class="headerlink" title="调度：比例份额"></a>调度：比例份额</h3><p>给每个进程一个彩票数，然后随机抽奖，抽到指定范围数就运行对应程序。好处在于随机数易于选取，计算快。而且每个用户可以将自己彩票按比例分配给自己的进程，然后系统将其兑换为全局彩票进行计算。且进程间可以转移彩票数，比如客户端给服务端，让其有更高的优先级。只需要一个记录每个进程彩票数的链表，一个全局总彩票数变量，一个产生随机数的函数。缺点是需要多次执行才能平均，而且彩票分配方法不确定。为了均匀可以设置步长，步长为彩票数的倒数，开始时，所有进程步长为0，然后每次选取最小步长进程进行运行，运行一次增加一个步长，这样很均匀。问题在于需要维护全局变量，便于新增进程设置步长值。</p>
+<h3 id="多处理器调度"><a href="#多处理器调度" class="headerlink" title="多处理器调度"></a>多处理器调度</h3><p>最后一个问题是，当前电脑基本都是多CPU，那么程序如何在多个CPU上调度。共享的内存与每个CPU上的缓存如何同步？访问共享元素需要加锁，导致速度变慢，进程切换一个cpu执行时，由于没有缓存的数据，导致速度变慢。</p>
+<p>第一种方案是SQMS，单队列多处理器调度，还是只使用全局的一个队列，不停的将队列中的进程调度到各个CPU上运行，这样需要在队列上加锁且亲和度不够。（上一个问题）</p>
+<p>第二种方案是MQMS，多队列多处理器调度，每个CPU一个工作队列，每个工作只能分配到一个队列中去，这样导致了负载不均。解决办法是任务迁移，一个现有研究是任务窃取，但是太频繁检查其他队列又会带来新的开销，阈值设置又是一个巫毒变量。</p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>上述内容较为零散，主要为阅读后的积累总结，部分术语可能需要一定的计算机相关知识才能更好地理解。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>你有无限驱动力</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Wei Shuo 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Wei Shuo 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wei Shuo
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.betterwei.cn/2020/08/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E8%99%9A%E6%8B%9F%E5%8C%96(%E4%B8%80)/" title="操作系统之虚拟化（一）">http://www.betterwei.cn/2020/08/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E8%99%9A%E6%8B%9F%E5%8C%96(%E4%B8%80)/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CPU/" rel="tag"><i class="fa fa-tag"></i>CPU</a>
+          
+            <a href="/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/" rel="tag"><i class="fa fa-tag"></i>虚拟化</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
         
-        
+
         
 
         
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2020">2020</h1>
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
           </div>
         
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/08/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E8%99%9A%E6%8B%9F%E5%8C%96(%E4%B8%80)/" itemprop="url">
-              
-                <span itemprop="name">操作系统之虚拟化（一）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-08-17T15:50:17+08:00"
-              content="2020-08-17" >
-          08-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        </div>
+      
       
 
-        
-        
-        
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/03/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
 
-        
-        
+          <span class="post-nav-divider"></span>
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/07/03/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-07-03T12:37:34+08:00"
-              content="2020-07-03" >
-          07-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
-    </div>
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -387,6 +593,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -407,8 +620,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -514,6 +736,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主要内容"><span class="nav-number">1.</span> <span class="nav-text">主要内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CPU虚拟化"><span class="nav-number">2.</span> <span class="nav-text">CPU虚拟化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程"><span class="nav-number">2.1.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的受限机制"><span class="nav-number">2.2.</span> <span class="nav-text">进程的受限机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程调度"><span class="nav-number">2.3.</span> <span class="nav-text">进程调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多级反馈队列MLFQ"><span class="nav-number">2.4.</span> <span class="nav-text">多级反馈队列MLFQ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调度：比例份额"><span class="nav-number">2.5.</span> <span class="nav-text">调度：比例份额</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多处理器调度"><span class="nav-number">2.6.</span> <span class="nav-text">多处理器调度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">3.</span> <span class="nav-text">结尾</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -664,6 +902,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
